@@ -1,0 +1,8 @@
+spring:
+    application:
+        name: devops-bootcamp
+    devtools:
+        add-properties: false
+
+server:
+  port: 8081
