@@ -1,9 +1,19 @@
 pipeline {
     agent any
+    tools {
+        maven 'maven-3.8.4'
+        jdk 'jdk17'
+    }
     stages{
+        stage('Checkout') {
+            steps {
+                git branch: 'main',
+                url: 'https://github.com/iMohammedSufiyan/devops-bootcamp-repo.git'
+            }
+        }
         stage('Build') {
             steps {
-                sh 'mvn clean package'
+                sh 'mvn clean package -DskipTests'
             }
         }
         stage('Docker Build') {
